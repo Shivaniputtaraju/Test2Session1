@@ -1,1 +1,13 @@
-
+Breakpoint 1, main () at p1original.c:32
+32  {
+(gdb) s
+34    input(&x1,&y1,&x2,&y2);
+(gdb) n
+enter the numerator and denominator of the fractions
+n
+35    add(x1,y1,x2,y2,&x3,&y3);
+(gdb) n
+36    output(x1,y1,x2,y2,x3,y3);
+(gdb) n
+sum of -411039408 21964 and -411040160 21964 is 7069948 -30151081
+37    return 0;

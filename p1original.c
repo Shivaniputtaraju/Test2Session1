@@ -1,24 +1,39 @@
 #include<stdio.h>
 #include<math.h>
-void input(float *x1,float *y1,float *x2,float *y2)
+void input(int *x1,int *y1,int *x2,int *y2)
 {
-  printf("enter the input values\n");
-  scanf("%f%f%f%f",x1,y1,x2,y2);
+  printf("enter the numerator and denominator of the fractions\n");
+  scanf("%d%d%d%d",x1,y1,x2,y2);
 }
-void find_distance(float x1,float y1,float x2,float y2,float *area)
+int findgcd(int a,int b)
 {
-  *area=sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+  int gcd=1;
+  while(b!=0)
+    {
+      gcd=a%b;
+      a=b;
+      b=gcd;
+    }
+  return a;
 }
-void output(float x1,float y1,float x2,float y2,float area)
+void add(int x1, int y1, int x2, int y2, int *x3, int *y3)
 {
-  printf("the area between two lines is %f",area);
+  *x3=(x1*y1)+(x2*y2);
+  *y3=y1*y2;
+  int g = findgcd(*x3,*y3);
+  *x3 /=g;
+  *y3 /=g;
+}
+void output(int x1, int y1, int x2, int y2, int x3, int y3)
+{
+  printf("sum of %d %d and %d %d is %d %d\n",x1,y1,x2,y2,x3,y3);
 }
 int main()
 {
-  float x1,x2,y1,y2,area;
-  input(&x1,&x2,&y1,&y2);
-  find_distance(x1,x2,y1,y2,&area);
-  output(x1,x2,y1,y2,area);
+  int x1,y1,x2,y2,x3,y3;
+  input(&x1,&y1,&x2,&y2);
+  add(x1,y1,x2,y2,&x3,&y3);
+  output(x1,y1,x2,y2,x3,y3);
   return 0;
 }
 
