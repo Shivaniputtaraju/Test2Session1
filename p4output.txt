@@ -1,1 +1,24 @@
 
+Breakpoint 1, main () at p4original.c:28
+28    int n = input();
+(gdb) s
+input () at p4original.c:3
+3   {
+(gdb) n
+5     printf("enter the number\n");
+(gdb) n
+enter the number
+6     scanf("%d",&n);
+(gdb) n
+n
+7     return n;
+(gdb) n
+8   }
+(gdb) n
+main () at p4original.c:29
+29    int fibo = find_fibo(n);
+(gdb) n
+30    output(n,fibo);
+(gdb) n
+the 32696th fibonacci number is -753623123
+31    return 0;
